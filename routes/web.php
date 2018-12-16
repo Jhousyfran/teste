@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('escola');
+});
+
+Route::get('/upload', function(){
+    return view('upload');
 });
