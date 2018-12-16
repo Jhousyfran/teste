@@ -7,7 +7,7 @@
     <title>Upload</title>
 </head>
 <body>
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="{{url('/upload')}}" method="post" enctype="multipart/form-data">
         <h3>Upload de arquivo .xls</h3>
         {{csrf_field()}}
 
@@ -22,6 +22,8 @@
         <br><br>
         <label for="">Arquivo Tercerizados:</label>
         <input type="file" name="tercerizado" id="">  
+<br><br>
+        <button > Enviar</button>
     </form>
 </body>
 </html>

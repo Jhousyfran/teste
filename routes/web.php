@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('/upload', function(){
     return view('upload');
 });
+
+Route::post('/upload', 'Upload@importar');
