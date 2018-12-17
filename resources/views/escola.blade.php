@@ -141,6 +141,18 @@
                 
             </div>
         </div>
+         <div class="col-md-2" >
+            <div style="border: solid 5px #ddd; background-color:white;">
+                <div style="padding-left:20px; border-bottom:solid 5px #ddd;">
+                    Vagas na Escola
+                </div>
+                <div>
+                    <label class="font-weight-bold" style="padding: 10px; margin-left: 30px;font-size:30px;">
+                        @{{escola.total_escolarizacao}}
+                    </label>
+                </div>
+            </div>
+        </div>
     </div>
     <br>
         <div class="row">
