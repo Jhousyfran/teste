@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
+Route::get('/escolas', 'Imovel@listar');
+Route::get('/escola/{imovel}', 'Imovel@obter');
+Route::get('/gastos/{id}', 'Contratos@listar');
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });

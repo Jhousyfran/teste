@@ -1,216 +1,325 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
-        <base href="{{asset('/')}}">
-        <meta name="author" content="Jhousyfran Costa">
-        <meta name="description" content="Teste para vaga de DEV">
-        <meta name="theme-color" content="#EEE"/>    
-        <!-- <link rel="shortcut icon" href="{{asset('icon.png')}}"> -->
-        <!-- <link rel="manifest" href="{{asset('pwa.manifest.json')}}"> -->
+@extends('layout')
+@section('content')
 
-        <title>Escola</title>
-        
-
-        <!-- Fonts -->
-        <!-- <link href="{{asset('/fonts/fontawesome-free-5.0.2/web-fonts-with-css/css/fontawesome-all.min.css')}}" rel="stylesheet" type="text/css"> -->
-        <link href="{{asset('/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-        <link href="{{asset('/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css">
-
-    </head>
-    <body>
-
-        <div class="col-md-10 offset-md-1 "><br>
-            <div class="row">
-                <div class="col-md-12">
-                    <h3>Detalhamento da Escola</h3>
-                    <!-- <hr> -->
+<div id="info">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{url('/')}}">Lista</a></li>
+                <li class="breadcrumb-item active" aria-current="page">@{{escola.nome}}</li>
+            </ol>
+    <div class="row" >
+        <nav aria-label="breadcrumb">
+        </nav>
+        <div class="col-md-5 offset-2" >
+            <h4>@{{escola.nome}}</h4>
+            Código INEP: @{{escola.inep}} 
+        </div>
+        <div class="col-md-2" >
+            <div>
+                <div style="padding-left:50px;">
+                    Status
+                </div>
+                <div>
+                    <label style="background-color: green; color:white; padding: 7px; margin-left: 30px;">
+                        @{{escola.situacao}}
+                    </label>
                 </div>
             </div>
         </div>
-        <div class="col-md-10 offset-md-1 bg-default"><br>
+        
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-8 offset-2"  style="border: solid 1px #ddd; background-color:white;">
             <div class="row">
-                <div class="col-md-5 offset-2" >
-                    <h4>Unidade de Ensino João Alberto</h4>
-                    Código INEP:25986  CNPJ: 1111111111111
-                </div>
-                <div class="col-md-2" >
-                    Status
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-8 offset-2">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label >Endereço:</label>
-                                <p class="form-campo">Rua das Laranjas</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label >Bairro:</label>
-                                <p class="form-campo">Modelo Imerial</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label >Cep:</label>
-                                <p class="form-campo">56565656</p>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label >Endereço:</label>
-                                <p class="form-campo">Rua das Laranjas</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label >Bairro:</label>
-                                <p class="form-campo">Modelo Imerial</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="form-group">
-                                <label >Cep:</label>
-                                <p class="form-campo">56565656</p>
-                            </div>
-                        </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold"> Cidade:</label>
+                        <p class="form-campo">@{{escola.cidade}}</p>
                     </div>
                 </div>
-            </div><br>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold"> Bairro:</label>
+                        <p class="form-campo">@{{escola.bairro}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold"> Cep:</label>
+                        <p class="form-campo">@{{escola.cep}}</p>
+                    </div>
+                </div>
 
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold"> Localidade:</label>
+                        <p class="form-campo">@{{escola.logradouro}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold"> Telefone:</label>
+                        <p class="form-campo">@{{escola.telefone}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold"> Regional:</label>
+                        <p class="form-campo">@{{escola.regional}}</p>
+                    </div>
+                </div>
 
-            <div class="row">
-                <div class="col-md-8 offset-2" >
-                    <h4>Dados do Gestor</h4>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold"> Dados do Imovel:</label>
+                        <p class="form-campo">@{{escola.ocupacao}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold"> Tipo de Escola:</label>
+                        <p class="form-campo">@{{escola.descricao}}</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold"> Tipo de Ensino:</label>
+                        <p class="form-campo">@{{escola.modalidade}}</p>
+                    </div>
                 </div>
             </div>
+        </div>
+    </div><br>
+
+
+    <div class="row">
+        <div class="col-md-8 offset-2" >
+            <h4>Dados do Gestor</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-2" style="border: solid 1px #ddd; background-color:white;">
             <div class="row">
-                <div class="col-md-8 offset-2">
+                <div class="col-md-2">
+                    <img src="{{asset('/img/user.jpg')}}" width="120">
+                </div>
+                <div class="col-md-10">
                     <div class="row">
-                        <div class="col-md-7">
+                            <div class="col-md-8">
                             <div class="form-group">
-                                <label >Nome:</label>
-                                <p class="form-campo">João da Silva Moraes de Azevedo</p>
+                                <label class="text-info font-weight-bold">Nome:</label>
+                                <p class="form-campo">@{{escola.gestores[0].nome}}</p>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-4">
                             <div class="form-group">
-                                <label >Tipo:</label>
-                                <p class="form-campo">Principal</p>
+                                <label class="text-info font-weight-bold">Tipo:</label>
+                                <p class="form-campo">@{{escola.gestores[0].cargo}}</p>
                             </div>
                         </div>
                         <div class="col-md-5">
                             <div class="form-group">
-                                <label >Email:</label>
-                                <p class="form-campo">gestor@geestor.com</p>
+                                <label class="text-info font-weight-bold">Email:</label>
+                                <p class="form-campo">@{{escola.gestores[0].email}}</p>
                             </div>
                         </div>
 
                         <div class="col-md-3">
                             <div class="form-group">
-                                <label >telefone</label>
-                                <p class="form-campo">(98)9999-9999</p>
+                                <label class="text-info font-weight-bold">telefone</label>
+                                <p class="form-campo">@{{escola.gestores[0].celular}}</p>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
-                                <label >Forma de Seleção:</label>
-                                <p class="form-campo">Modelo Imerial</p>
+                                <label class="text-info font-weight-bold">Forma de Seleção:</label>
+                                <p class="form-campo">@{{escola.gestores[0].tipo_eleito}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
+                
             </div>
-            <br>
-             <div class="row">
-                <div class="col-md-8 offset-2" >
-                    <h4>Dados de Sala Fora</h4>
+        </div>
+    </div>
+    <br>
+        <div class="row">
+        <div class="col-md-8 offset-2" >
+            <h4>Dados diretoria</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-2" >
+            <div class="row" >
+                <div class="col-md-12" style="border: solid 1px #ddd; background-color:white;" >
+                    <table  class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Cargor</th>
+                                <th scope="col">matricula</th>
+                                <th scope="col">situacao</th>
+                                <th scope="col">CPF</th>
+                            </tr>
+                        </thead>
+                        <tbody style="background-color: white;">
+                            <tr v-for="gestor in escola.gestores">
+                                <th>@{{gestor.nome}}</th>
+                                <td>@{{gestor.cargo}}</td>
+                                <td>@{{gestor.matricula}}</td>
+                                <td>@{{gestor.tipo_eleito}}</td>
+                                <td>@{{gestor.cpf}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+        </div>
+    </div>
+    <br><br>
+
+    <div class="row">
+        <div class="col-md-8 offset-2" >
+            <h4>Financeiro</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8 offset-2" >
+            <div class="row" >
+                <div class="col-md-3" :class="{'bg-info': aba == 1}" style="border: solid 1px #ddd; height: 50px; border-bottom: solid 1px;">
+                    <label class="aba" @click="selecionaAba(1)">Contratos e Repasses</label>
+                </div>
+                <div  style="width:5px;border-bottom: solid 1px;">
+                </div>
+                <div class="col-md-3" :class="{'bg-info': aba == 2}" style="border: solid 1px #ddd; border-bottom: solid 1px;">
+                    <label class="aba" @click="selecionaAba(2)">Prestações de Contas</label>
+                </div>
+                <div class="col-md-4" style="border-bottom: solid 1px;">
+                </div>
+            </div>
+           <br>
+        </div> 
+    </div>
+     <div v-if="aba == 1" class="row">
+        <div class="col-md-8 offset-2" >
+            <h4>Contratos</h4>
+        </div>
+    </div>
+    <div class="row">
+        <div  v-if="aba == 1" class="col-md-8 offset-2" style="border: solid 1px #ddd; background-color:white;">
             <div class="row">
-                <div class="col-md-8 offset-2">
-                    <div class="row">
-                        <div class="col-md-12">
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">First</th>
-                                    <th scope="col">Last</th>
-                                    <th scope="col">Handle</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                    <th scope="row">1</th>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">2</th>
-                                    <td>Jacob</td>
-                                    <td>Thornton</td>
-                                    <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">3</th>
-                                    <td>Larry</td>
-                                    <td>the Bird</td>
-                                    <td>@twitter</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold" >Vigilancia:</label>
+                        <p class="form-campo">R$ @{{escola.gastos_vigilancia}},00</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold" >Serviços Gerais:</label>
+                        <p class="form-campo">R$ @{{escola.gastos_limpeza}},00</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold" >Aluguel:</label>
+                        <p v-if="escola.gastos_aluguel" class="form-campo">@{{escola.gastos_aluguel}}</p>
+                        <p v-else="escola.gastos_aluguel" class="form-campo"> R$ 0,00</p>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="text-success font-weight-bold" >Merendeira</label>
+                        <p class="form-campo">R$ @{{escola.gastos_merendeira}},00</p>
                     </div>
                 </div>
             </div>
-
-
-            <div class="row">
-                <div class="col-md-8 offset-2" >
-                    <h4>Financeiro</h4>
+        </div><br>
+         <div  v-if="aba == 2" class="col-md-8 offset-2" style="border: solid 1px #ddd; background-color:white;">
+         </div>
+        <div class="col-md-2" >
+            <div style="border: solid 5px #ddd; background-color:white;">
+                <div style="padding-left:15px; border-bottom:solid 5px #ddd;">
+                    STATUS FINANCEIRO
+                </div>
+                <div>
+                    <label  style="background-color: green; color:white; padding: 7px; margin-left: 30px;">
+                        Adimplente
+                    </label>
                 </div>
             </div>
-
-
-
         </div>
+    </div>
+    <div class="row" v-if="aba == 1">
+        <div class="col-md-8 offset-2" >
+            <h4>Repasses</h4>
+        </div>
+    </div>
+    <div class="row" v-if="aba == 1">
+        <div class="col-md-8 offset-2 " style="border: solid 1px #ddd; background-color:white;">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="text-warning font-weight-bold" >Manutenção:</label>
+                        <p class="form-campo">R$ @{{escola.repasse_manutencao}},00</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="text-warning font-weight-bold" >Pagamentos Terceiros:</label>
+                        <p class="form-campo">R$ @{{escola.repasse_pagamentos_terceiros}},00</p>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="text-warning font-weight-bold" >Outros:</label>
+                        <p  class="form-campo">R$ @{{escola.repasse_outros}},00</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-        <style>
-            .bg-default {
-                background-color: #eee;
-            }
+</div>
+<br><br><br>    
+<script>
+    
+new Vue({
+  el: '#info',
+  data () {
+    return {
+        escola: {} ,
+        aba : 1
+    }
+  },
+  computed: {
+      
+  },
+  methods : {
+    selecionaAba(valor){
+        this.aba = valor;
+    }
+  },
+  async mounted () {
+    let url = window.location.href;
+    url = url.split('/');
+    let idescola = url[url.length -1];
 
-            .form-campo {
-                display: block;
-                width: 100%;
-                /* padding: .375rem .75rem; */
-                font-size: 20px;
-                line-height: 1.5;
-                /* color: #495057; */
-                /* background-color: #fff; */
-                background-clip: padding-box;
-                /* border: 1px solid #ced4da; */
-                /* border-radius: .25rem; */
-                /* transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out; */
-            }
-
-            p {
-                margin-top: -5px;
-                /* font */
-            }
-        </style>
-
-    </body>
-    <!-- <script src="{{asset('/js/moment-with-locales.min.js')}}" charset="utf-8"></script> -->
-
-
-</html>
+      let api = 'http://'+window.location.host + '/api/escola/' + idescola;
+      console.log(api);
+      
+    
+        let response = await axios.get(api);
+        console.log('oii');
+        this.escola = response.data.imovel;
+        this.escola.gastos_limpeza = response.data.gastos_limpeza;
+        this.escola.gastos_vigilancia = response.data.gastos_vigilancia;
+        this.escola.gastos_merendeira = response.data.gastos_merendeira; 
+        this.escola.repasse_manutencao = response.data.repasse_manutencao; 
+        this.escola.repasse_pagamentos_terceiros = response.data.repasse_pagamentos_terceiros; 
+        this.escola.repasse_outros = response.data.repasse_outros; 
+  }
+})
+</script>
+@endsection

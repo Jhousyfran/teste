@@ -12,8 +12,15 @@
 */
 
 Route::get('/', function () {
+    return view('lista');
+});
+
+Route::get('/escola/{id}', function () {
     return view('escola');
 });
+
+
+
 
 Route::get('/upload', function(){
     return view('upload');

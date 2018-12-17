@@ -3,20 +3,46 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Gestor;
+use App\Models\Imovel;
+use App\Models\Tercerizado;
+use App\Models\Repasse;
+use Illuminate\Support\Facades\Redirect;
 
 class Upload extends Controller
 {
 
     public function importar(Request $request){
 
-        $fileImovel = fopen($request->imovel, 'r');
-
-        while(($linha = fgetcsv($fileImovel, 1000, ";")) != false){
-            $teste = utf8_encode($linha[0]);
-            $teste2 = utf8_encode($linha[1]);
-
-            dd($teste2);
+        /** 
+        if($request->imovel){
+            $imovel = new Imovel();
+            $imovel->importar($request->imovel);
         }
+         
+        if ($request->gestor) {
+            $gestor = new Gestor();
+            $gestor->importar($request->gestor);
+
+            dd($gestor);
+        }
+         
+        if ($request->repasse) {
+            $repasse = new Repasse();
+            $repasse->importar($request->repasse);
+
+            dd($repasse);
+        }
+         */
+
+        if ($request->tercerizado) {
+            $tercerizado = new Tercerizado();
+            $tercerizado->importar($request->tercerizado);
+
+            //dd($tercerizado);
+        }
+
+        return redirect('/');
 
     }
 }
